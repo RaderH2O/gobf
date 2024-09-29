@@ -11,9 +11,15 @@ const (
     BfPrint
 )
 
+type Bf interface {
+    String() string
+    bf()
+}
+
 func (Operation) bf() {
     panic("bf called")
 }
+
 
 func (op Operation) String() string {
     switch op {
@@ -33,10 +39,6 @@ func (op Operation) String() string {
     return ""
 }
 
-type Bf interface {
-    String() string
-    bf()
-}
 
 type BfLoop struct {
     Body []Bf
